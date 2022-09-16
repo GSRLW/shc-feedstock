@@ -1,0 +1,47 @@
+{% set name = "shc" %}
+{% set version = "4.0.3" %}
+{% set sha256 = "dfb46118894456080f9a43fec615ecf86511633148cb786fde1b134bce0d54dc" %}
+
+package:
+  name: {{ name }}
+  version: {{ version }}
+
+source:
+  fn: {{ name }}-{{ version }}.zip
+  url: ../../source/{{ name }}-{{ version }}.zip
+  # url: https://github.com/hypre-space/{{ name }}/archive/v{{ version }}.tar.gz
+  sha256: {{ sha256 }}
+
+build:
+  number: 0
+  skip: true  # [win]
+
+requirements:
+  build:
+    - cmake
+    - automake
+    - autoconf
+    # - {{ compiler('c') }}
+    # - {{ compiler('cxx') }}
+  host:
+  run:
+
+test:
+  commands:
+    # - conda inspect objects  hypre  # [osx]
+    # - conda inspect linkages hypre  # [not win]
+    - make check
+    # - test -f $PREFIX/lib/libHYPRE.dylib  # [osx]
+    # - test -f $PREFIX/lib/libHYPRE.so  # [linux]
+
+about:
+  home: https://neurobin.org/projects/softwares/unix/shc/
+  license: GPL-3.0
+  license_family: GPL
+  license_file: COPYING
+  summary: 'A generic shell script compiler'
+  description: |
+    A generic shell script compiler. Shc takes a script, 
+    which is specified on the command line and produces 
+    C source code. The generated source code is then 
+    compiled and linked to produce a stripped binary executable.
