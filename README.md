@@ -14,5 +14,7 @@ here is [shc](https://github.com/neurobin/shc).
 
 ## reference
 [Conda-build documentation](https://docs.conda.io/projects/conda-build/en/latest/index.html)
+
 [conda-forge](https://conda-forge.org)
+
 [shc](https://github.com/neurobin/shc)
