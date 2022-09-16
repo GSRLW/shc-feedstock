@@ -13,7 +13,7 @@ source:
   sha256: {{ sha256 }}
 
 build:
-  number: 0
+  number: 1
   skip: true  # [win]
 
 requirements:
@@ -28,11 +28,9 @@ requirements:
 
 test:
   commands:
-    # - conda inspect objects  hypre  # [osx]
-    # - conda inspect linkages hypre  # [not win]
-    - make check
-    # - test -f $PREFIX/lib/libHYPRE.dylib  # [osx]
-    # - test -f $PREFIX/lib/libHYPRE.so  # [linux]
+    # - make check
+    # - test -f ${PREFIX}/bin/shc
+    # - test -f ${PREFIX}/share/man/man1  # [linux]
 
 about:
   home: https://neurobin.org/projects/softwares/unix/shc/
